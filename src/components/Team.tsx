@@ -1,4 +1,4 @@
-import { Linkedin, Mail } from 'lucide-react';
+
 
 const teamMembers = [
   {
