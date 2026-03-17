@@ -103,7 +103,7 @@ export default function Contact() {
                   <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
                   <a href="tel:+254796132196" className="text-gray-600 hover:text-teal-600 transition-colors">
                     +254 796 132 196<br />
-                    +254 769 991 839
+                    +254 113 466 531
                   </a>
                 </div>
               </div>
