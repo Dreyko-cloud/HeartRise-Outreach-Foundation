@@ -1,4 +1,4 @@
-import { Heart, Users, HandHeart, Smile } from 'lucide-react';
+import { Heart, Users } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -60,48 +60,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Visual collage — replace any div's bg-image with your own photo URL */}
+          {/* Right: Hero photo */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md">
-              {/* Main large card */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-orange-400 to-orange-600 aspect-[4/3] flex items-center justify-center">
-                {/*
-                  TO ADD YOUR OWN PHOTO: replace the div below with:
-                  <img src="/your-photo.jpg" alt="HeartRise community" className="w-full h-full object-cover" />
-                */}
-                <div className="text-center text-white p-6">
-                  <Heart size={64} className="fill-white mx-auto mb-3 opacity-80" />
-                  <p className="font-bold text-xl">Add your hero photo here</p>
-                  <p className="text-white/70 text-sm mt-1">Replace this card with an &lt;img&gt; tag</p>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              </div>
-
-              {/* Floating badge: top-left */}
-              <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-700 rounded-xl flex items-center justify-center">
-                  <HandHeart size={20} className="text-white" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500">Our Mission</p>
-                  <p className="text-sm font-bold text-gray-900">Community First</p>
-                </div>
-              </div>
-
-              {/* Floating badge: bottom-right */}
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center">
-                  <Smile size={20} className="text-white" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500">Impact</p>
-                  <p className="text-sm font-bold text-gray-900">100+ Lives Changed</p>
-                </div>
-              </div>
-
-              {/* Small decorative dots */}
-              <div className="absolute -z-10 -bottom-6 -left-6 w-24 h-24 bg-teal-100 rounded-full opacity-60"></div>
-              <div className="absolute -z-10 -top-6 -right-6 w-16 h-16 bg-orange-100 rounded-full opacity-60"></div>
+            <div className="w-full max-w-md rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="/images/IMG-20241112-WA0015.jpg"
+                alt="HeartRise Outreach community"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

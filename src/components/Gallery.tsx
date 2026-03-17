@@ -1,13 +1,28 @@
 import { useState } from 'react';
-import { Instagram, Image, Video, ExternalLink } from 'lucide-react';
+import { Instagram, ExternalLink, Play } from 'lucide-react';
 
 const mediaItems = [
-  { type: 'image', label: 'Event Photo 1' },
-  { type: 'image', label: 'Event Photo 2' },
-  { type: 'video', label: 'Event Video 1' },
-  { type: 'image', label: 'Event Photo 3' },
-  { type: 'image', label: 'Event Photo 4' },
-  { type: 'video', label: 'Event Video 2' },
+  { type: 'image', src: '/images/IMG_1447.JPG', label: 'Community Outreach' },
+  { type: 'image', src: '/images/IMG_1452.JPG', label: 'Community Outreach' },
+  { type: 'image', src: '/images/IMG_1453.JPG', label: 'Community Outreach' },
+  { type: 'image', src: '/images/IMG_1461.JPG', label: 'Community Outreach' },
+  { type: 'image', src: '/images/IMG_1465.JPG', label: 'Community Outreach' },
+  { type: 'image', src: '/images/IMG_1513.JPG', label: 'Community Outreach' },
+  { type: 'image', src: '/images/IMG-20241112-WA0015.jpg', label: 'Outreach Day' },
+  { type: 'image', src: '/images/IMG-20241112-WA0016.jpg', label: 'Outreach Day' },
+  { type: 'image', src: '/images/IMG-20251123-WA0020.jpg', label: 'Community Event' },
+  { type: 'image', src: '/images/IMG-20251123-WA0021.jpg', label: 'Community Event' },
+  { type: 'image', src: '/images/IMG-20251123-WA0022.jpg', label: 'Community Event' },
+  { type: 'image', src: '/images/IMG-20251123-WA0025.jpg', label: 'Community Event' },
+  { type: 'image', src: '/images/IMG-20251123-WA0096.jpg', label: 'Community Event' },
+  { type: 'video', src: '/videos/VID-20251123-WA0133.mp4', label: 'Event Highlight' },
+  { type: 'video', src: '/videos/VID-20251123-WA0101.mp4', label: 'Event Highlight' },
+  { type: 'video', src: '/videos/VID-20251123-WA0105.mp4', label: 'Event Highlight' },
+  { type: 'video', src: '/videos/VID-20251123-WA0122.mp4', label: 'Event Highlight' },
+  { type: 'video', src: '/videos/VID-20251123-WA0146.mp4', label: 'Event Highlight' },
+  { type: 'video', src: '/videos/VID-20251123-WA0147.mp4', label: 'Event Highlight' },
+  { type: 'video', src: '/videos/VID-20251123-WA0148.mp4', label: 'Event Highlight' },
+  { type: 'video', src: '/videos/VID-20251123-WA0150.mp4', label: 'Event Highlight' },
 ];
 
 export default function Gallery() {
@@ -36,6 +51,7 @@ export default function Gallery() {
           </p>
         </div>
 
+        {/* Filter tabs */}
         <div className="flex justify-center gap-3 mb-10">
           {(['all', 'photos', 'videos'] as const).map(tab => (
             <button
@@ -52,24 +68,46 @@ export default function Gallery() {
           ))}
         </div>
 
+        {/* Media grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((item, index) => (
             <div
               key={index}
-              className="group relative bg-gradient-to-br from-orange-50 to-teal-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-dashed border-orange-200 flex flex-col items-center justify-center gap-3 h-48"
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gray-100 aspect-video"
             >
-              {item.type === 'image'
-                ? <Image size={40} className="text-orange-300" />
-                : <Video size={40} className="text-teal-400" />
-              }
-              <p className="text-sm font-medium text-gray-400">{item.label}</p>
-              <p className="text-xs text-gray-400 px-4 text-center">
-                Replace with your actual {item.type === 'image' ? 'photo' : 'video'}
-              </p>
+              {item.type === 'image' ? (
+                <img
+                  src={item.src}
+                  alt={item.label}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <video
+                  src={item.src}
+                  className="w-full h-full object-cover"
+                  controls
+                  preload="metadata"
+                />
+              )}
+
+              {/* Label overlay on images */}
+              {item.type === 'image' && (
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <p className="text-white font-semibold">{item.label}</p>
+                </div>
+              )}
+
+              {/* Play icon hint for videos */}
+              {item.type === 'video' && (
+                <div className="absolute top-3 right-3 bg-black/40 rounded-full p-2 pointer-events-none">
+                  <Play size={16} className="text-white fill-white" />
+                </div>
+              )}
             </div>
           ))}
         </div>
 
+        {/* Instagram CTA */}
         <div className="mt-12 text-center">
           <p className="text-gray-500 mb-4">Follow us on Instagram for live updates from our events</p>
           <a

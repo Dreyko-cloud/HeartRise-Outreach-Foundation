@@ -1,5 +1,21 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Instagram } from 'lucide-react';
+
+function TikTokIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+    </svg>
+  );
+}
+
+function XIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.264 5.636L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+    </svg>
+  );
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,7 +35,7 @@ export default function Contact() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: '163fcb14-f38e-4ebd-ab83-89de6f847bd1',
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -117,18 +133,18 @@ export default function Contact() {
                 >
                   <Instagram size={20} />
                 </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-teal-100 hover:bg-teal-600 text-teal-600 hover:text-white rounded-xl flex items-center justify-center transition-colors"
+                <button
+                  onClick={() => alert('We are working on opening an account on TikTok. Stay tuned! 🧡')}
+                  className="w-12 h-12 bg-orange-100 hover:bg-pink-500 text-orange-500 hover:text-white rounded-xl flex items-center justify-center transition-colors"
                 >
-                  <Facebook size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-orange-100 hover:bg-orange-500 text-orange-500 hover:text-white rounded-xl flex items-center justify-center transition-colors"
+                  <TikTokIcon size={20} />
+                </button>
+                <button
+                  onClick={() => alert('We are working on opening an account on X. Stay tuned! 🧡')}
+                  className="w-12 h-12 bg-orange-100 hover:bg-gray-700 text-orange-500 hover:text-white rounded-xl flex items-center justify-center transition-colors"
                 >
-                  <Twitter size={20} />
-                </a>
+                  <XIcon size={20} />
+                </button>
               </div>
             </div>
           </div>
@@ -196,9 +212,11 @@ export default function Contact() {
               </button>
 
               {submitted && (
-                <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
-                  <p className="text-green-600 font-semibold text-center">
-                    ✅ Thank you! Your message has been sent. We'll be in touch soon.
+                <div className="p-6 bg-gradient-to-br from-orange-50 to-teal-50 border border-orange-100 rounded-2xl">
+                  <p className="text-2xl text-center mb-2">🧡</p>
+                  <p className="text-gray-900 font-bold text-center text-lg mb-1">Message received!</p>
+                  <p className="text-gray-500 text-center text-sm">
+                    Thank you for reaching out. Someone from the HeartRise team will get back to you shortly.
                   </p>
                 </div>
               )}

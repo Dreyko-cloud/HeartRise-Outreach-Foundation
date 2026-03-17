@@ -43,8 +43,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
           <div className="md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                <Heart className="text-white fill-white" size={24} />
+              <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                <img src="/heartrise-logo.png.jpeg" alt="HeartRise Outreach logo" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">HeartRise Outreach</h3>
