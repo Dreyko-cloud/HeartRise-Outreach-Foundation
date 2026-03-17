@@ -132,7 +132,7 @@ export default function Footer() {
                 <Phone size={18} className="text-teal-400 flex-shrink-0 mt-0.5" />
                 <a href="tel:+254796132196" className="hover:text-teal-400 transition-colors">
                   +254 796 132 196<br />
-                  +254 769 991 839
+                  +254 113 466 531
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-300">
